@@ -23,6 +23,12 @@ class ViewController: UIViewController {
         
         let ok = UIAlertAction(title: "OK", style: .default){ action in
             print("OK Pressed")
+            
+            if let firstName = alert.textFields![0].text,
+               let lastName = alert.textFields![1].text {
+                
+                self.labelToChangeFromAlert.text = ("Name: " + firstName + "" + lastName)
+            }
         }
         alert.addAction(ok)
         
@@ -37,26 +43,25 @@ class ViewController: UIViewController {
             textField.placeholder = "Last Name"
         })
         
-        let ok2 = UIAlertAction(title: "OK", style: .default){ action in
-            print(alert.textFields?.first)
-            print(alert.textFields?.last)
+//        let ok2 = UIAlertAction(title: "OK", style: .default){ action in
+//            print(alert.textFields?.first)
+//            print(alert.textFields?.last)
 //LABEL CHANGE:
             let ok3 = UIAlertAction(title: "OK", style: .default){ [self] action in
-                if let firstName = alert.textFields![0].text,
-                   let lastName = alert.textFields![1].text {
-                    
-                    self.labelToChangeFromAlert.text = ("Name: " + firstName + "" + lastName)
+//                if let firstName = alert.textFields![0].text,
+//                   let lastName = alert.textFields![1].text {
+//
+//                    self.labelToChangeFromAlert.text = ("Name: " + firstName + "" + lastName)
                 }
                 
-            }
-    }
+        }
     
-        func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+        
 }
 
-}
+
